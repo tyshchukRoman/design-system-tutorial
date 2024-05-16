@@ -3,30 +3,31 @@
 .button {
   display: inline-flex;
   cursor: pointer;
+  font-size: $button-font-size;
+  font-weight: $button-font-weight;
   text-decoration: none;
-  text-transform: uppercase;
   line-height: 1;
-  border: 0;
-  font-weight: $font-weight-bold;
-  padding: 1.125em 2em;
-  transition: 275ms ease;
+  border: $button-border;
+  border-radius: $button-border-radius;
+  padding: $button-padding-default;
+
+  &[data-type="primary"] {
+    background-color: $button-primary-background;
+    color: $button-primary-color;
+
+    &:is(:hover, :focus) {
+      background-color: $button-primary-background-hover;
+      color: $button-primary-color-hover;
+    }
+  }
 
   &[data-type="accent"] {
-    background-color: $color-accent-400;
-    color: $color-primary-800;
-  }
+    background-color: $button-accent-background;
+    color: $button-accent-color;
 
-  &[data-type="outline"] {
-    --outline-size: 5px;
-
-    background: transparent;
-    outline: var(--outline-size) solid $color-neutral-100;
-    outline-offset: calc(var(--outline-size) * -1);
-    color: $color-neutral-100;
-  }
-
-  &:is(:hover, :focus) {
-    background: $color-neutral-100;
-    color: $color-primary-800;
+    &:is(:hover, :focus) {
+      background-color: $button-accent-background-hover;
+      color: $button-accent-color-hover;
+    }
   }
 }
